@@ -9,7 +9,8 @@ import { Routes, Route, Link } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="font-sans min-h-screen bg-gray-50 ">
+    <div className="flex flex-col min-h-screen font-sans bg-gray-50">
+      {/* Navbar */}
       <nav className="bg-white shadow sticky top-0 z-50 px-6 py-4 flex justify-between items-center">
         <h1 className="text-2xl font-bold text-blue-600">ReactShop 🛍️</h1>
         <div className="space-x-4">
@@ -34,9 +35,10 @@ function App() {
         </div>
       </nav>
 
-      <main className="px-4 sm:px-8 py-6">
+      {/* Main content that grows to push footer down */}
+      <main className="flex-grow px-4 sm:px-8 py-6">
         <Routes>
-          <Route path="/" element={ <Home /> } />
+          <Route path="/" element={<Home />} />
           <Route path="/product" element={<ProductsList />} />
           <Route path="/cart" element={<AddRemoveCart />} />
           <Route path="/info/:id" element={<ProductInfo />} />
@@ -44,6 +46,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
+
+      {/* Sticky Footer */}
       <Footer />
     </div>
   );

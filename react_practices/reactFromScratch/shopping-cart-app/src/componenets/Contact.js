@@ -34,7 +34,7 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="text-gray-700 hover:text-black text-lg font-medium transition"
             >
-              X (Twitter)
+              X
             </a>
           </div>
         </div>
