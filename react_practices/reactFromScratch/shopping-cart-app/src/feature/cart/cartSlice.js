@@ -2,7 +2,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  items: [], // each item: { id, name, price, quantity }
+  items: [], // each item: { id, name, price, quantity, image, title, category }
+  loading: false,
+  error: null
 };
 
 const cartSlice = createSlice({
@@ -13,9 +15,9 @@ const cartSlice = createSlice({
       const item = action.payload;
       const existingItem = state.items.find((i) => i.id === item.id);
       if (existingItem) {
-        existingItem.quantity += 1;
+        existingItem.quantity += item.quantity || 1;
       } else {
-        state.items.push({ ...item, quantity: 1 });
+        state.items.push({ ...item, quantity: item.quantity || 1 });
       }
     },
     removeFromCart: (state, action) => {
@@ -24,12 +26,32 @@ const cartSlice = createSlice({
       if (index !== -1) {
         state.items.splice(index, 1);
       }
-      },
+    },
+    updateQuantity: (state, action) => {
+      const { id, quantity } = action.payload;
+      const item = state.items.find((i) => i.id === id);
+      if (item) {
+        item.quantity = quantity;
+      }
+    },
     clearCart: (state) => {
-        state.items = [];
+      state.items = [];
+    },
+    setLoading: (state, action) => {
+      state.loading = action.payload;
+    },
+    setError: (state, action) => {
+      state.error = action.payload;
     }
   },
 });
 
-export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  updateQuantity,
+  clearCart,
+  setLoading,
+  setError
+} = cartSlice.actions;
 export default cartSlice.reducer;
