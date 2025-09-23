@@ -7,6 +7,7 @@ import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import Home from './components/Home'
 import ProductsList from './components/ProductsList'
+import Categories from './components/Categories'
 import Cart from './components/Cart'
 import ProductDetail from './components/ProductDetail'
 import About from './components/About'
@@ -21,13 +22,14 @@ function App() {
   }, [dispatch])
 
   return (
-    <div className="min-h-screen bg-secondary-50 flex flex-col">
+    <div className="min-h-screen bg-secondary-50 flex flex-col mobile-safe-area">
       <Navigation />
 
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<ProductsList />} />
+          <Route path="/categories" element={<Categories />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/about" element={<About />} />

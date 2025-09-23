@@ -49,7 +49,7 @@ const ProductCard = ({ product, index }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.1 }}
       whileHover={{ y: -4 }}
-      className="group relative bg-white rounded-xl shadow-sm border border-secondary-200 overflow-hidden hover:shadow-lg transition-all duration-300"
+      className="group relative bg-white rounded-lg sm:rounded-xl shadow-sm border border-secondary-200 overflow-hidden hover:shadow-lg transition-all duration-300 touch-action-manipulation"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -100,7 +100,7 @@ const ProductCard = ({ product, index }) => {
       </div>
 
       {/* Product Info */}
-      <div className="p-4">
+      <div className="p-3 sm:p-4">
         {/* Rating */}
         <div className="flex items-center mb-2">
           <div className="flex items-center">
@@ -123,7 +123,7 @@ const ProductCard = ({ product, index }) => {
 
         {/* Title */}
         <Link to={`/product/${product.id}`}>
-          <h3 className="font-semibold text-secondary-900 mb-2 line-clamp-2 hover:text-primary-600 transition-colors">
+          <h3 className="font-semibold text-secondary-900 mb-2 line-clamp-2 hover:text-primary-600 transition-colors text-sm sm:text-base">
             {product.title}
           </h3>
         </Link>
@@ -131,7 +131,7 @@ const ProductCard = ({ product, index }) => {
         {/* Price */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-2">
-            <span className="text-xl font-bold text-secondary-900">
+            <span className="text-lg sm:text-xl font-bold text-secondary-900">
               ${product.price}
             </span>
             {product.originalPrice && (
@@ -176,9 +176,9 @@ const ProductCard = ({ product, index }) => {
           ) : (
             <button
               onClick={handleAddToCart}
-              className="w-full btn-primary flex items-center justify-center space-x-2 py-2"
+              className="w-full btn-primary flex items-center justify-center space-x-2 py-2 text-sm sm:text-base"
             >
-              <ShoppingCart className="w-4 h-4" />
+              <ShoppingCart className="w-3 h-3 sm:w-4 sm:h-4" />
               <span>Add to Cart</span>
             </button>
           )}
@@ -189,3 +189,4 @@ const ProductCard = ({ product, index }) => {
 }
 
 export default ProductCard
+

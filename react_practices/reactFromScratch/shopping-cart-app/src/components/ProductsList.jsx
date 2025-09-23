@@ -88,15 +88,15 @@ const ProductsList = () => {
   if (error) return <div className="text-center text-red-500 py-8">Error: {error}</div>
 
   return (
-    <div className="container py-8">
+    <div className="container py-6 sm:py-8 px-4">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-secondary-900 mb-2">Products</h1>
-        <p className="text-secondary-600">Discover our amazing collection of products</p>
+      <div className="mb-6 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl font-bold text-secondary-900 mb-2">Products</h1>
+        <p className="text-sm sm:text-base text-secondary-600">Discover our amazing collection of products</p>
       </div>
 
       {/* Search and Filters */}
-      <div className="bg-white rounded-lg border border-secondary-200 p-6 mb-8">
+      <div className="bg-white rounded-lg border border-secondary-200 p-4 sm:p-6 mb-6 sm:mb-8">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           {/* Search */}
           <div className="relative flex-1 max-w-md">
@@ -111,12 +111,12 @@ const ProductsList = () => {
           </div>
 
           {/* Controls */}
-          <div className="flex items-center space-x-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
             {/* Category Filter */}
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="input w-40"
+              className="input w-full sm:w-40"
             >
               {categories.map(category => (
                 <option key={category} value={category}>
@@ -126,24 +126,24 @@ const ProductsList = () => {
             </select>
 
             {/* Sort */}
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-1 sm:space-x-2 overflow-x-auto">
               <button
                 onClick={() => handleSortChange('name')}
                 className={clsx(
-                  'btn-ghost text-sm',
+                  'btn-ghost text-xs sm:text-sm whitespace-nowrap',
                   sortBy === 'name' && 'bg-primary-50 text-primary-600'
                 )}
               >
-                Name {sortBy === 'name' && (sortOrder === 'asc' ? <SortAsc className="w-4 h-4 inline ml-1" /> : <SortDesc className="w-4 h-4 inline ml-1" />)}
+                Name {sortBy === 'name' && (sortOrder === 'asc' ? <SortAsc className="w-3 h-3 sm:w-4 sm:h-4 inline ml-1" /> : <SortDesc className="w-3 h-3 sm:w-4 sm:h-4 inline ml-1" />)}
               </button>
               <button
                 onClick={() => handleSortChange('price')}
                 className={clsx(
-                  'btn-ghost text-sm',
+                  'btn-ghost text-xs sm:text-sm whitespace-nowrap',
                   sortBy === 'price' && 'bg-primary-50 text-primary-600'
                 )}
               >
-                Price {sortBy === 'price' && (sortOrder === 'asc' ? <SortAsc className="w-4 h-4 inline ml-1" /> : <SortDesc className="w-4 h-4 inline ml-1" />)}
+                Price {sortBy === 'price' && (sortOrder === 'asc' ? <SortAsc className="w-3 h-3 sm:w-4 sm:h-4 inline ml-1" /> : <SortDesc className="w-3 h-3 sm:w-4 sm:h-4 inline ml-1" />)}
               </button>
             </div>
 
@@ -152,29 +152,29 @@ const ProductsList = () => {
               <button
                 onClick={() => setViewMode('grid')}
                 className={clsx(
-                  'p-2 transition-colors',
+                  'p-1.5 sm:p-2 transition-colors',
                   viewMode === 'grid' ? 'bg-primary-500 text-white' : 'text-secondary-600 hover:bg-secondary-50'
                 )}
               >
-                <Grid className="w-4 h-4" />
+                <Grid className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
               <button
                 onClick={() => setViewMode('list')}
                 className={clsx(
-                  'p-2 transition-colors',
+                  'p-1.5 sm:p-2 transition-colors',
                   viewMode === 'list' ? 'bg-primary-500 text-white' : 'text-secondary-600 hover:bg-secondary-50'
                 )}
               >
-                <List className="w-4 h-4" />
+                <List className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
             </div>
 
             {/* Advanced Filters */}
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="btn-outline flex items-center space-x-2"
+              className="btn-outline flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm"
             >
-              <SlidersHorizontal className="w-4 h-4" />
+              <SlidersHorizontal className="w-3 h-3 sm:w-4 sm:h-4" />
               <span>Filters</span>
             </button>
           </div>
@@ -257,7 +257,7 @@ const ProductsList = () => {
           exit={{ opacity: 0 }}
           className={clsx(
             viewMode === 'grid' 
-              ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'
+              ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6'
               : 'space-y-4'
           )}
         >
@@ -297,3 +297,4 @@ const ProductsList = () => {
 }
 
 export default ProductsList
+

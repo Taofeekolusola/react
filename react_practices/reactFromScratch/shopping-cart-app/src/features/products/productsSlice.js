@@ -63,3 +63,4 @@ const productsSlice = createSlice({
 
 export const { setFilters, clearFilters } = productsSlice.actions;
 export default productsSlice.reducer;
+

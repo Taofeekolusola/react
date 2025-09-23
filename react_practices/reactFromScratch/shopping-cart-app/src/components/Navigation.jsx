@@ -34,14 +34,14 @@ const Navigation = () => {
       animate={{ y: 0 }}
       className="bg-white/95 backdrop-blur-md border-b border-secondary-200 sticky top-0 z-50"
     >
-      <div className="container">
-        <div className="flex items-center justify-between h-16">
+      <div className="container px-4">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">M</span>
             </div>
-            <span className="text-xl font-bold text-secondary-900">ModernShop</span>
+            <span className="text-lg sm:text-xl font-bold text-secondary-900">ModernShop</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -75,17 +75,17 @@ const Navigation = () => {
           </div>
 
           {/* Right Side Actions */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             {/* Search Button (Mobile) */}
             <button
               onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="lg:hidden p-2 text-secondary-600 hover:text-primary-600 transition-colors"
+              className="lg:hidden p-1.5 sm:p-2 text-secondary-600 hover:text-primary-600 transition-colors"
             >
-              <Search className="w-5 h-5" />
+              <Search className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
             {/* Wishlist */}
-            <button className="p-2 text-secondary-600 hover:text-primary-600 transition-colors relative">
+            <button className="hidden sm:block p-2 text-secondary-600 hover:text-primary-600 transition-colors relative">
               <Heart className="w-5 h-5" />
               <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
                 0
@@ -93,7 +93,7 @@ const Navigation = () => {
             </button>
 
             {/* Notifications */}
-            <button className="p-2 text-secondary-600 hover:text-primary-600 transition-colors relative">
+            <button className="hidden sm:block p-2 text-secondary-600 hover:text-primary-600 transition-colors relative">
               <Bell className="w-5 h-5" />
               <span className="absolute -top-1 -right-1 bg-primary-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
                 3
@@ -103,14 +103,14 @@ const Navigation = () => {
             {/* Cart */}
             <Link
               to="/cart"
-              className="p-2 text-secondary-600 hover:text-primary-600 transition-colors relative"
+              className="p-1.5 sm:p-2 text-secondary-600 hover:text-primary-600 transition-colors relative"
             >
-              <ShoppingCart className="w-5 h-5" />
+              <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
               {cartCount > 0 && (
                 <motion.span 
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className="absolute -top-1 -right-1 bg-primary-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-medium"
+                  className="absolute -top-1 -right-1 bg-primary-500 text-white text-xs rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center font-medium text-xs"
                 >
                   {cartCount}
                 </motion.span>
@@ -118,19 +118,19 @@ const Navigation = () => {
             </Link>
 
             {/* User Profile */}
-            <button className="p-2 text-secondary-600 hover:text-primary-600 transition-colors">
+            <button className="hidden sm:block p-2 text-secondary-600 hover:text-primary-600 transition-colors">
               <User className="w-5 h-5" />
             </button>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-secondary-600 hover:text-primary-600 transition-colors"
+              className="md:hidden p-1.5 sm:p-2 text-secondary-600 hover:text-primary-600 transition-colors"
             >
               {isMobileMenuOpen ? (
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4 sm:w-5 sm:h-5" />
               ) : (
-                <Menu className="w-5 h-5" />
+                <Menu className="w-4 h-4 sm:w-5 sm:h-5" />
               )}
             </button>
           </div>
@@ -192,3 +192,4 @@ const Navigation = () => {
 }
 
 export default Navigation
+

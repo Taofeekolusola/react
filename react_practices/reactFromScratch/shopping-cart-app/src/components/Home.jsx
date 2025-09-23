@@ -51,22 +51,22 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-50 via-white to-secondary-50 py-20 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-primary-50 via-white to-secondary-50 py-12 sm:py-16 lg:py-20 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="container relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="container relative px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-8"
+              className="space-y-6 sm:space-y-8"
             >
               <div className="space-y-4">
                 <motion.h1
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="text-5xl lg:text-6xl font-bold text-secondary-900 leading-tight"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-secondary-900 leading-tight"
                 >
                   Discover Amazing
                   <span className="text-primary-600 block">Products</span>
@@ -75,7 +75,7 @@ const Home = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
-                  className="text-xl text-secondary-600 max-w-lg"
+                  className="text-base sm:text-lg lg:text-xl text-secondary-600 max-w-lg"
                 >
                   Shop the latest trends with unbeatable prices and exceptional quality. 
                   Your one-stop destination for everything you need.
@@ -86,18 +86,18 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4"
               >
                 <Link
                   to="/products"
-                  className="btn-primary text-lg px-8 py-4 inline-flex items-center justify-center space-x-2"
+                  className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 inline-flex items-center justify-center space-x-2"
                 >
                   <span>Shop Now</span>
                   <ArrowRight className="w-5 h-5" />
                 </Link>
                 <Link
                   to="/categories"
-                  className="btn-outline text-lg px-8 py-4"
+                  className="btn-outline text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4"
                 >
                   Browse Categories
                 </Link>
@@ -108,19 +108,19 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="grid grid-cols-3 gap-8 pt-8 border-t border-secondary-200"
+                className="grid grid-cols-3 gap-4 sm:gap-8 pt-6 sm:pt-8 border-t border-secondary-200"
               >
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary-600">10K+</div>
-                  <div className="text-sm text-secondary-600">Happy Customers</div>
+                  <div className="text-xl sm:text-2xl font-bold text-primary-600">10K+</div>
+                  <div className="text-xs sm:text-sm text-secondary-600">Happy Customers</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary-600">500+</div>
-                  <div className="text-sm text-secondary-600">Products</div>
+                  <div className="text-xl sm:text-2xl font-bold text-primary-600">500+</div>
+                  <div className="text-xs sm:text-sm text-secondary-600">Products</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary-600">4.9</div>
-                  <div className="text-sm text-secondary-600">Rating</div>
+                  <div className="text-xl sm:text-2xl font-bold text-primary-600">4.9</div>
+                  <div className="text-xs sm:text-sm text-secondary-600">Rating</div>
                 </div>
               </motion.div>
             </motion.div>
@@ -130,7 +130,7 @@ const Home = () => {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative"
+              className="relative hidden lg:block"
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-400 to-primary-600 rounded-3xl transform rotate-3"></div>
@@ -307,3 +307,4 @@ const Home = () => {
 }
 
 export default Home
+
