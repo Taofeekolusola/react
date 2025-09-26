@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
   Search, 
-  Filter, 
   Grid, 
   List, 
   SlidersHorizontal,
@@ -11,7 +10,6 @@ import {
   SortDesc
 } from 'lucide-react'
 import { clsx } from 'clsx'
-import { fetchProducts } from '../features/products/productsSlice'
 import ProductCard from './ProductCard'
 import LoadingSpinner from './LoadingSpinner'
 
